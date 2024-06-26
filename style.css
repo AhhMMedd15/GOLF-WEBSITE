@@ -1,0 +1,1485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
+}
+
+*::selection {
+    color: white;
+    background-color: #95c11e;
+}
+
+.main-animation{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    z-index:9999;
+    transition: all ease 0.8s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime{
+    overflow: hidden;
+}
+.anime>h1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    background: linear-gradient(to top right, rgb(163, 211, 33),rgb(42, 165, 52));
+    color: transparent;
+    -webkit-background-clip: text;
+   transform: translateY(100%);
+   transition: all ease 0.6s;
+   /* transform-origin: left; */
+   
+}
+
+.main-bar{
+    width: 100vw;
+    height: 100%;
+    background-image: linear-gradient(to top right, rgb(163, 211, 33),rgb(42, 165, 52));
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 20;
+    padding: 100px 0px;
+    display: none;
+}
+
+.main-bar a{
+    text-decoration: none;
+}
+.main-bar a>h2{
+    color: white;
+    font-weight: bolder;
+    font-size: 6vw;
+    text-align: center;
+    margin-top: 45px;
+    transition: all ease 0.2s;
+
+}
+.main-bar a>h2:hover{
+    color: black;
+}
+.nav {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav a>h4 {
+    font-size: 18px;
+}
+
+
+.nav h4::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -10%;
+    background-color: #95c11e;
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+
+}
+
+.nav h4:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav img {
+    height: 12vh;
+    margin-left: 50px;
+}
+
+.nav .menu {
+    width: 10vw;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-left: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 10px;
+    /* cursor: pointer; */
+    display: none;
+}
+
+.menu:hover {
+    border: 2px solid #95c11e;
+}
+
+.cursor {
+    width: 30px;
+    height: 30PX;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+    transition: all ease in 0.5s;
+}
+
+.cursor-blur {
+    width: 180px;
+    height: 180px;
+    background-color: #95c11e;
+    border-radius: 50%;
+    z-index: 10;
+    position: fixed;
+    filter: blur(100px);
+    transition: all ease in 0.5s;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+
+
+.btn {
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: 2px solid #95c11e;
+    cursor: pointer;
+    transition: all ease-in 0.5s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-left: 20px;
+
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transform: translateY(-10%);
+}
+
+.btn::before {
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #95c11e;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+}
+
+.btn::after {
+    content: "";
+    top: 0;
+    left: 0;
+    background-color: #95c11e;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: all ease-in 0.5s;
+    z-index: -2;
+
+}
+
+.btn:hover::before {
+    transform: translateY(0);
+    z-index: -1;
+
+}
+
+.btn:hover::after {
+    transform: translateY(0);
+    z-index: -1;
+}
+
+.btn:hover {
+    color: black;
+}
+
+.mb {
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: 2px solid #95c11e;
+    cursor: pointer;
+    transition: all ease-in 0.5s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-left: 20px;
+    display: none;
+}
+
+.mb:hover {
+    transform: scale(1.1);
+    transform: translateY(-10%);
+}
+
+.mb::before {
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #95c11e;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+}
+
+.mb::after {
+    content: "";
+    top: 0;
+    left: 0;
+    background-color: #95c11e;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(-100%);
+    transition: all ease-in 0.5s;
+    z-index: -2;
+
+}
+
+.mb:hover::before {
+    transform: translateY(0);
+    z-index: -1;
+
+}
+
+.mb:hover::after {
+    transform: translateY(0);
+    z-index: -1;
+}
+
+.mb:hover {
+    color: black;
+}
+
+.main {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.164);
+    z-index: 10;
+    overflow: hidden;
+
+}
+
+.page1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.page1>h1 {
+    font-size: 8vw;
+    font-weight: 700;
+    position: relative;
+    margin-top: 50px;
+
+}
+
+.page1>h1::before {
+    content: "EAT. DRINK. PLAY.";
+    top: -4px;
+    left: -5px;
+    position: absolute;
+    color: black;
+    -webkit-text-stroke: 3px #95c11e;
+    z-index: -1;
+
+}
+
+.page1>h2 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.page1>p {
+    margin-top: 20px;
+    width: 45vw;
+    font-size: 1.5vw;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.page2 {
+    width: 100%;
+}
+
+.scroller-in {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+
+.scroller-in::-webkit-scrollbar {
+    display: none;
+}
+
+.scroller {
+
+    display: flex;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+
+
+.scroller h4 {
+    font-size: 7vw;
+    font-weight: 900;
+    margin-right: 10px;
+    -webkit-text-stroke: 2px #95c11e;
+    color: black;
+    transition: all linear 0.4s;
+
+}
+
+.scroller h4:hover {
+    color: #95c11e;
+
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.about-us {
+    width: 100vw;
+    height: auto;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 50px;
+}
+
+.about-us .content p {
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.about-us img {
+    width: 15vw;
+    height: 30vh;
+    border-radius: 20%;
+    margin-top: 30px;
+
+}
+
+.about-us .content {
+    width: 50vw;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.content-mb {
+    display: none;
+}
+
+.card-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.card-1 {
+    width: 25%;
+    height: 65%;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.c-icon {
+    width: 25%;
+    height: 20%;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position: absolute;
+    right: -5%;
+    border: 2px solid black;
+}
+
+.c-icon i {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 30px;
+    color: black;
+}
+
+.c-icon i:hover {
+    background-color: white;
+    color: #95c11e;
+}
+
+.card-1:hover {
+    transform: rotate3d(-1, 1, 0, 20deg);
+}
+
+.bgcolor {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.247);
+
+}
+
+.card-1>h1 {
+    position: absolute;
+    bottom: 5%;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.card-2 {
+    width: 25%;
+    height: 65%;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-768x768.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.card-2:hover {
+    transform: rotate3d(1, 1, 0, 20deg);
+}
+
+.card-2>h1 {
+    position: absolute;
+    bottom: 5%;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.card-3 {
+    width: 25%;
+    height: 65%;
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.card-3:hover {
+    transform: rotate3d(-1, 1, 0, 20deg);
+}
+
+.card-3>h1 {
+    position: absolute;
+    bottom: 5%;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.overlay-1 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    opacity: 0;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    transition: all ease-in 0.4s;
+}
+
+.card-1:hover .overlay-1 {
+    opacity: 1;
+}
+
+.overlay-2 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    opacity: 0;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    transition: all ease-in 0.4s;
+}
+
+.card-2:hover .overlay-2 {
+    opacity: 1;
+}
+
+
+.overlay-3 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    opacity: 0;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    transition: all ease-in 0.4s;
+}
+
+.card-3:hover .overlay-3 {
+    opacity: 1;
+}
+
+.overlay-1>h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 100px;
+    margin-left: 20px;
+    font-weight: bold;
+
+}
+
+.overlay-1 p {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: black;
+    opacity: 0.6;
+}
+
+.overlay-2>h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 100px;
+    margin-left: 20px;
+    font-weight: bold;
+
+}
+
+.overlay-2 p {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: black;
+    opacity: 0.6;
+}
+
+.overlay-3>h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 100px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.overlay-3 p {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: black;
+    opacity: 0.6;
+}
+
+.half-bar {
+    width: 100%;
+    height: 40vh;
+}
+
+.bar {
+    width: 100%;
+    height: 70%;
+    background-image: linear-gradient(to top right, rgb(163, 211, 33), rgb(42, 165, 52));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bar .left {
+    width: 15%;
+    height: 100%;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bar .right {
+    width: 15%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bar .center {
+    width: calc(60%);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center h2 {
+    width: 80%;
+    height: auto;
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+
+}
+
+.swiper-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-content-left {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.swiper {
+    width: 75%;
+    height: 60%;
+    border-radius: 30px;
+}
+
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.swiper-content-right {
+    width: 50%;
+    height: 100%;
+}
+
+/* .swiper-pagination {
+    swiper-pagination-bullet: #95c11e;
+} */
+
+.content-sw {
+    margin-top: 20%;
+    margin-left: 10%;
+}
+
+.content-sw>h1 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.content-sw>p {
+    width: 70%;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+
+.btn:nth-child(4) {
+    margin-top: 40px;
+}
+
+.rotation {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    transform: rotate(-5deg);
+    margin-top: 100px;
+}
+
+.rotate-elem {
+    display: flex;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    gap: 20px;
+
+}
+
+.rotation::-webkit-scrollbar {
+    display: none;
+}
+
+.rotate-elem>img {
+    border-radius: 30px;
+    /* width: 20%; */
+}
+
+.content-container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.comas-content h2 {
+    text-align: center;
+}
+
+.comas-left {
+    width: 100%;
+    height: 10%;
+    position: relative;
+
+}
+
+.comas-left>img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -300%;
+}
+
+.comas-right {
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
+.comas-right>img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 300%;
+}
+
+.bg-content {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-content h1 {
+    text-align: center;
+    font-size: 70px;
+    transform: translateY(60%);
+    z-index: 1;
+    color: black;
+    -webkit-text-stroke: 1px white;
+    transition: all ease-in 0.2s;
+}
+
+.bg-content-img {
+    width: 100%;
+    height: 30%;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 30px;
+}
+
+.bg-content-img1 {
+    width: 25%;
+    height: 100%;
+    /* background-color: aqua; */
+    border-radius: 10px;
+    z-index: 2;
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-toptracer-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-content-img2 {
+    width: 25%;
+    height: 100%;
+    /* background-color: aqua; */
+    border-radius: 10px;
+    z-index: 2;
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-lessons-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-content-img3 {
+    width: 25%;
+    height: 100%;
+    /* background-color: aqua; */
+    border-radius: 10px;
+    z-index: 2;
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-ag.jpg?strip=all&lossy=1&sharp=1&w=1152&ssl=1");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-content-img1>h2 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: white;
+    z-index: -1;
+}
+
+.bg-content-img2>h2 {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: white;
+    z-index: -1;
+}
+
+.bg-content-img3>h2 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: white;
+    z-index: -1;
+}
+
+.bg-content-img1>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.bg-content-img2>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.bg-content-img3>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.contento-1 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    border-radius: 10px;
+    transition: all ease 0.5s;
+
+}
+
+.contento-2 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    border-radius: 10px;
+    transition: all ease 0.5s;
+
+}
+
+.contento-3 {
+    width: 100%;
+    height: 100%;
+    background-color: #95c11e;
+    border-radius: 10px;
+    transition: all ease 0.5s;
+}
+
+.contento-1>h2 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: black;
+}
+
+.contento-2>h2 {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: black;
+}
+
+.contento-3>h2 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: black;
+}
+
+.contento-1:hover {
+    opacity: 0;
+}
+
+.contento-2:hover {
+    opacity: 0;
+}
+
+.contento-3:hover {
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+@media (min-width:1000px){
+
+    .main-bar{
+        z-index: -4;
+    }
+}
+
+
+
+@media (max-width:600px) {
+
+
+    .main-animation{
+        width: 100vw;
+        height: 100%;
+        background-color: black;
+        position: fixed;
+        z-index:9999;
+        transition: all ease 0.8s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .anime{
+        overflow: hidden;
+    }
+    .anime>h1{
+        font-size: 9vw;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        background: linear-gradient(to top right, rgb(163, 211, 33),rgb(42, 165, 52));
+        color: transparent;
+        -webkit-background-clip: text;
+       transform: translateY(100%);
+       transition: all ease 0.6s;
+       transform-origin: left;
+       
+    }
+
+    .main-bar{
+        z-index: 20;
+    }
+    
+    .nav {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 99;
+        padding-right: 30px;
+    }
+
+
+    .nav a {
+        text-decoration: none;
+        color: white;
+        position: relative;
+        display: none;
+    }
+
+    .nav img {
+        height: 8vh;
+
+    }
+
+
+
+    .nav .menu {
+        width: 25vw;
+        display: flex;
+        display: block;
+        text-align: center;
+        transition: all ease 0.5s;
+    }
+
+    .mb {
+        display: block;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    .menu>h3 {
+        font-size: 20px;
+    }
+
+    .page1 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .page1>h1 {
+        width: 100vw;
+        font-size: 15vw;
+        font-weight: 700;
+        position: relative;
+        margin-top: 50px;
+        text-align: center;
+        line-height: 55px;
+    }
+
+
+    .page1>h2 {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 4vmax;
+        text-align: center;
+    }
+
+    .page1>p {
+        margin-top: 20px;
+        width: 90vw;
+        font-size: 4vw;
+        text-align: center;
+        opacity: 0.9;
+
+    }
+
+    .scroller h4 {
+        font-size: 9vw;
+        font-weight: 900;
+        margin-right: 10px;
+        -webkit-text-stroke: 2px #ffffff;
+        color: black;
+        transition: all linear 0.4s;
+
+    }
+
+    .scroller h4:hover {
+        color: #95c11e;
+        -webkit-text-stroke: 2px #95c11e;
+    }
+
+    .about-us {
+        width: 100vw;
+        height: auto;
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .about-us .content p {
+        margin-top: 20px;
+        opacity: 0.9;
+
+    }
+
+    .about-us img {
+        width: 35vw;
+        height: 25vh;
+        border-radius: 20%;
+        /* margin-top: 30px; */
+
+
+    }
+
+    .about-us .content {
+        width: 50vw;
+        text-align: center;
+        font-size: 1.5vw;
+        display: none;
+    }
+
+    .content-mb {
+        display: block;
+        text-align: center;
+    }
+
+    .content-mb p {
+        width: 95vw;
+        margin-top: 20px;
+        opacity: 0.8;
+        font-size: 20px;
+    }
+
+    .card-container {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 100px;
+    }
+
+    .card-1 {
+        width: 90vw;
+        height: 50vh;
+        background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .c-icon {
+        width: 25vw;
+        height: 15vh;
+        background-color: #95c11e;
+        border-radius: 50%;
+        position: absolute;
+        right: -5%;
+        border: 2px solid black;
+    }
+
+
+    .card-2 {
+        width: 90vw;
+        height: 50vh;
+        background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-768x768.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .card-3 {
+        width: 90vw;
+        height: 50vh;
+        background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 20px;
+
+    }
+
+    .half-bar {
+        width: 100vw;
+        height: 30vh;
+        margin-top: 40px;
+    }
+
+    .bar .center {
+        width: calc(60%);
+        height: 100%;
+    }
+
+    .center h2 {
+        width: 100vw;
+        text-align: center;
+        color: black;
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+
+    .swiper-content {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .swiper-content-left {
+        width: 100vw;
+        height: 50%;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+    }
+
+    .swiper {
+        width: 100vw;
+        height: 80%;
+        border-radius: 30px;
+    }
+
+
+    .swiper-slide img {
+        width: 100vw;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+
+    .swiper-content-right {
+        width: 100vw;
+        height: 50%;
+        display: flex;
+        
+    }
+
+    .content-sw {
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .content-sw>h1 {
+        font-size: 40px;
+        font-weight: bolder;
+    }
+
+    .content-sw>p {
+        width: 80vw;
+        margin-top: 20px;
+        font-size: 20px;
+
+    }
+
+    .btn:nth-child(4) {
+        margin-top: 40px;
+        display: block;
+        position: absolute;
+        left: 5%;
+    }
+
+    .rotation {
+        width: 100vw;
+        height: 80vh;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 20px;
+        transform: rotate(-5deg);
+    }
+
+    .rotate-elem {
+        display: flex;
+        animation-name: scroll;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        gap: 20px;
+
+    }
+
+    .rotation::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rotate-elem>img {
+        border-radius: 30px;
+        height: 30vh;
+        /* width: 20%; */
+    }
+
+    
+    .bg-content {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bg-content h1 {
+        text-align: center;
+        font-size: 6.5vw;
+        transform: translateY(60%);
+        z-index: 1;
+        color:#95c11e;
+        -webkit-text-stroke: 1px #95c11e;
+        padding: 0px 10px;
+    }
+    
+    .bg-content-img {
+        width: 100%;
+        height: 30%;
+        background-color: black;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0px 30px;
+        gap: 10px;
+    }
+    
+    .bg-content-img1 {
+        width: 100vw;
+        height: 20vh;
+        border-radius: 10px;
+        z-index: 2;
+        background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-toptracer-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .bg-content-img2 {
+        width: 100vw;
+        height: 20vh;
+        border-radius: 10px;
+        z-index: 2;
+        background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-lessons-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .bg-content-img3 {
+        width: 100vw;
+        height: 20vh;
+        border-radius: 10px;
+        z-index: 2;
+        background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-ag.jpg?strip=all&lossy=1&sharp=1&w=1152&ssl=1");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .bg-content-img1>h2 {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        color: white;
+        z-index: -1;
+    }
+    
+    .bg-content-img2>h2 {
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        color: white;
+        z-index: -1;
+    }
+    
+    .bg-content-img3>h2 {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        color: white;
+        z-index: -1;
+    }
+    
+    .contento-1>h2 {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        color: black;
+    }
+    
+    .contento-2>h2 {
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        color: black;
+    }
+    
+    .contento-3>h2 {
+        position: absolute;
+        top: 40%;
+        left:20%;
+        color: black;
+    }
+    
+}
